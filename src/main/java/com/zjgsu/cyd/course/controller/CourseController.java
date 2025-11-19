@@ -44,6 +44,14 @@ public class CourseController {
                 .map(Result::success)  // 存在则返回200+课程信息
                 .orElse(Result.error(404, "Course not found"));  // 不存在返回404
     }
+    // 新增：按课程代码查询课程
+    @GetMapping("/code/{code}")
+    public Result<Course> getCourseByCode(@PathVariable String code) {
+        return courseService.findCourseByCode(code)
+                .map(Result::success)  // 存在则返回200+课程信息
+                .orElse(Result.error(404, "Course not found by code: " + code));  // 不存在返回404
+    }
+
 
     // 3. 创建课程（POST /api/courses）
     // 创建课程：捕获非法参数异常
@@ -73,6 +81,7 @@ public class CourseController {
             return new ResponseEntity<>(Result.error(404, e.getMessage()), HttpStatus.NOT_FOUND);
         }
     }
+
 
     // 5. 删除课程（DELETE /api/courses/{id}）
     @DeleteMapping("/{id}")

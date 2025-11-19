@@ -58,6 +58,11 @@ public class CourseService {
         return coursePage.getContent();
     }
 
+    public Optional<Course> findCourseByCode(String code) {
+        //  CourseRepository 有 findByCode 方法，若没有需先在 Repository 中定义
+        return courseRepository.findByCode(code);
+    }
+
 
 
 

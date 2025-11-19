@@ -34,6 +34,9 @@ public interface CourseRepository extends JpaRepository<Course, String> {
     @Override
     void deleteById(String id);
 
+    // 新增：按课程代码查询课程
+    Optional<Course> findByCode(String code);
+
     // 5. 保留原“检查课程代码是否已存在”方法，按 Spring Data 规范实现
     boolean existsByCode(String code);
 
