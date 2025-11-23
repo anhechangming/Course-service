@@ -1,8 +1,0 @@
-# application.yml（全局配置，所有环境通用）
-spring:
-  # 关键：指定默认激活的环境为 dev，启动时自动加载 application-dev.yml
-  profiles:
-    active: prod
-  # 其他全局配置（如JPA通用参数，可覆盖环境配置）
-  jpa:
-    open-in-view: false  # 关闭OpenSessionInView，所有环境通用

@@ -1,7 +1,7 @@
-package com.cyd.catalogservice.common;
+package com.cyd.enrollmentservice.common;
 
 
-import com.cyd.catalogservice.Response.Result;
+import com.cyd.enrollmentservice.Response.Result;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
