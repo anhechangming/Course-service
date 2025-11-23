@@ -63,19 +63,19 @@ public class EnrollmentController {
         }
     }
 
-    // 4-1. 课程+状态组合查询（适配任务三组合查询要求（{insert\_element\_10\_}））
-    @GetMapping("/course/{courseId}/status")
-    public ResponseEntity<Result<List<Enrollment>>> getEnrollmentsByCourseIdAndStatus(
-            @PathVariable String courseId,
-            @RequestParam EnrollmentStatus status
-    ) {
-        try {
-            List<Enrollment> enrollments = enrollmentService.findEnrollmentsByCourseIdAndStatus(courseId, status);
-            return new ResponseEntity<>(Result.success(enrollments), HttpStatus.OK);
-        } catch (RuntimeException e) {
-            return new ResponseEntity<>(Result.error(404, e.getMessage()), HttpStatus.NOT_FOUND);
-        }
-    }
+//    // 4-1. 课程+状态组合查询（适配任务三组合查询要求（{insert\_element\_10\_}））
+//    @GetMapping("/course/{courseId}/status")
+//    public ResponseEntity<Result<List<Enrollment>>> getEnrollmentsByCourseIdAndStatus(
+//            @PathVariable String courseId,
+//            @RequestParam EnrollmentStatus status
+//    ) {
+//        try {
+//            List<Enrollment> enrollments = enrollmentService.findEnrollmentsByCourseIdAndStatus(courseId, status);
+//            return new ResponseEntity<>(Result.success(enrollments), HttpStatus.OK);
+//        } catch (RuntimeException e) {
+//            return new ResponseEntity<>(Result.error(404, e.getMessage()), HttpStatus.NOT_FOUND);
+//        }
+//    }
 
     // 5. 按学生学号查询选课记录（GET /api/enrollments/student/{studentId}）- 保留原功能
     @GetMapping("/student/{studentId}")
@@ -102,14 +102,14 @@ public class EnrollmentController {
         }
     }
 
-    // 6. 统计课程活跃人数（适配任务三统计要求（{insert\_element\_12\_}））
-    @GetMapping("/course/{courseId}/active-count")
-    public ResponseEntity<Result<Long>> getActiveEnrollmentCountByCourseId(@PathVariable String courseId) {
-        try {
-            long count = enrollmentService.countActiveEnrollmentsByCourseId(courseId);
-            return new ResponseEntity<>(Result.success(count), HttpStatus.OK);
-        } catch (RuntimeException e) {
-            return new ResponseEntity<>(Result.error(404, e.getMessage()), HttpStatus.NOT_FOUND);
-        }
-    }
+//    // 6. 统计课程活跃人数（适配任务三统计要求（{insert\_element\_12\_}））
+//    @GetMapping("/course/{courseId}/active-count")
+//    public ResponseEntity<Result<Long>> getActiveEnrollmentCountByCourseId(@PathVariable String courseId) {
+//        try {
+//            long count = enrollmentService.countActiveEnrollmentsByCourseId(courseId);
+//            return new ResponseEntity<>(Result.success(count), HttpStatus.OK);
+//        } catch (RuntimeException e) {
+//            return new ResponseEntity<>(Result.error(404, e.getMessage()), HttpStatus.NOT_FOUND);
+//        }
+//    }
 }

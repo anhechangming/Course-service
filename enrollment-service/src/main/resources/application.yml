@@ -15,3 +15,6 @@ spring:
     properties:
       hibernate:
         format_sql: true  # ??? SQL ??
+# catalog-service??????????localhost:8081?Docker?????http://catalog-service:8081?{insert\_element\_16\_}?
+catalog-service:
+  url: http://localhost:8081
